@@ -1,4 +1,4 @@
-Marek Bečvář
+*Marek Bečvář*
 
 # AI2048
 
@@ -9,7 +9,6 @@ Currently:
 - main.py - WIP
 - GUI.py - Gui engine
 - game_2048.py - 2048 game script
-
 
 NEEDS: 
 - ml agent - reinforcement learning
