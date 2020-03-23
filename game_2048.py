@@ -41,7 +41,7 @@ class gBoard():
                     if(y == 0):
                         if(self.board[y][x] == self.board[y+1][x]):
                             return True
-                    elif(y == b_WH-1):
+                    elif(y == self.b_WH-1):
                         if(self.board[y][x] == self.board[y-1][x]):
                             return True
                     else:
@@ -51,7 +51,7 @@ class gBoard():
                     if(x == 0):
                         if(self.board[y][x] == self.board[y][x+1]):
                             return True
-                    elif(x == b_WH-1):
+                    elif(x == self.b_WH-1):
                         if(self.board[y][x] == self.board[y][x-1]):
                             return True
                     else:

@@ -54,20 +54,29 @@ class GUI_Window(pyglet.window.Window):
         win_size = self.get_size()[0]
         for y in range(self.GC.b_WH): #reversed - pyglet window left bottom 0:0
             for x in range(self.GC.b_WH):
+                R = (self.GC.board[self.GC.b_WH-1 - y][x]/((2048.0/3.0)*1)) * 1
+                G = (self.GC.board[self.GC.b_WH-1 - y][x]/((2048.0/3.0)*2)) * 1
+                B = (self.GC.board[self.GC.b_WH-1 - y][x]/((2048.0/3.0)*3)) * 1
+
+                self.drawSquare(sX = (win_size//self.GC.b_WH)*x, 
+                                sY = (win_size//self.GC.b_WH)*y, 
+                                size = win_size//self.GC.b_WH,
+                                color = [R,G,B])
                 self.drawText(text = str(self.GC.board[self.GC.b_WH-1 - y][x]), 
                               sX = win_size//(self.GC.b_WH*2) + (win_size//self.GC.b_WH)*x, 
                               sY = win_size//(self.GC.b_WH*2) + (win_size//self.GC.b_WH)*y, 
                               size = 30)
 
     def on_key_release(self, key, modifiers):
+        """ PLAYABLE """
         if(self.playable):
-            if(key == pyglet.window.key.NUM_2):
+            if(key == pyglet.window.key.NUM_2 or key == pyglet.window.key.S):
                 self.GC.process_move(2)
-            if(key == pyglet.window.key.NUM_8):
+            elif(key == pyglet.window.key.NUM_8 or key == pyglet.window.key.W):
                 self.GC.process_move(8)
-            if(key == pyglet.window.key.NUM_6):
+            elif(key == pyglet.window.key.NUM_6 or key == pyglet.window.key.D):
                 self.GC.process_move(6)
-            if(key == pyglet.window.key.NUM_4):
+            elif(key == pyglet.window.key.NUM_4 or key == pyglet.window.key.A):
                 self.GC.process_move(4)
         pass
 
